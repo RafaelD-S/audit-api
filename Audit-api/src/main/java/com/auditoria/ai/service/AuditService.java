@@ -27,7 +27,6 @@ public class AuditService {
 
     private final PromptService promptService;
     private final NaturalInputProcessor naturalInputProcessor;
-    private final OllamaChatService ollamaChatService;
     private final ExecutorService modelExecutor = Executors.newVirtualThreadPerTaskExecutor();
 
     private final GoogleGenAiChatModel hydrogenChatModel;
@@ -37,7 +36,6 @@ public class AuditService {
     public AuditService(
             PromptService promptService,
             NaturalInputProcessor naturalInputProcessor,
-            OllamaChatService ollamaChatService,
 
             @Qualifier("hydrogenChatModel")
             GoogleGenAiChatModel hydrogenChatModel,
@@ -50,7 +48,6 @@ public class AuditService {
     ) {
         this.promptService = promptService;
         this.naturalInputProcessor = naturalInputProcessor;
-        this.ollamaChatService = ollamaChatService;
         this.hydrogenChatModel = hydrogenChatModel;
         this.flashChatModel = flashChatModel;
         this.flashLiteChatModel = flashLiteChatModel;
@@ -66,13 +63,6 @@ public class AuditService {
 
     public String generateNaturalTextWithFlashLite(NaturalAuditRequest request) {
         return generateNaturalText(request, flashLiteChatModel, "flash-lite", 1);
-    }
-
-    public String generateNaturalTextWithOllama(NaturalAuditRequest request) {
-        NaturalInputProcessor.ProcessedNaturalInput input =
-                naturalInputProcessor.process(request.entrada());
-
-        return ollamaChatService.generate(promptService.buildNaturalPrompt(input.text()));
     }
 
     private String generateNaturalText(

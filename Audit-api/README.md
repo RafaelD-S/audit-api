@@ -74,14 +74,13 @@ Após a inicialização, a API estará disponível localmente na porta configura
 
 ## Endpoints
 
-A aplicação disponibiliza quatro endpoints para realização de auditorias:
+A aplicação disponibiliza três endpoints para realização de auditorias:
 
 | Método | Endpoint | Modelo |
 |---|---|---|
 | POST | `/api/audit/natural-text/hydrogen` | Hydrogen |
 | POST | `/api/audit/natural-text/flash` | Gemini Flash |
 | POST | `/api/audit/natural-text/flash-lite` | Gemini Flash Lite |
-| POST | `/api/audit/natural-text/ollama` | `qwen3:30b` (Ollama do IFBA) |
 
 Cada endpoint recebe uma requisição de auditoria e delega seu processamento ao serviço responsável, utilizando o modelo de IA correspondente.
 
@@ -124,17 +123,3 @@ curl -X POST "http://localhost:8080/api/audit/natural-text/flash" \
 ```
 
 O campo `entrada` deve conter o texto utilizado como referência para a auditoria, podendo incluir informações e links para documentos relevantes ao processo.
-
-### Utilizando o endpoint Ollama
-
-O endpoint `/api/audit/natural-text/ollama` recebe o mesmo JSON dos endpoints Gemini, processa a entrada com o prompt de auditoria da aplicação e envia o conteúdo ao modelo `qwen3:30b`, hospedado no Ollama do IFBA. A resposta é retornada como texto simples (`text/plain`).
-
-**Exemplo com cURL:**
-
-```bash
-curl -X POST "http://localhost:8080/api/audit/natural-text/ollama" \
-     -H "Content-Type: application/json" \
-     -d "{\"entrada\":\"Descreva as informações conhecidas sobre os controles internos e os procedimentos relacionados ao processo auditado.\"}"
-```
-
-O servidor Ollama configurado é `https://ollama-api.ifba.edu.br`. A aplicação precisa ter acesso de rede a esse servidor para gerar respostas.

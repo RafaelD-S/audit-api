@@ -37,11 +37,4 @@ public class AuditController {
     ) {
         return ResponseEntity.ok(auditService.generateNaturalTextWithFlashLite(request));
     }
-
-    @PostMapping(value = "/natural-text/ollama", produces = MediaType.TEXT_PLAIN_VALUE)
-    public ResponseEntity<String> generateNaturalTextWithOllama(
-            @Valid @RequestBody NaturalAuditRequest request
-    ) {
-        return ResponseEntity.ok(auditService.generateNaturalTextWithOllama(request));
-    }
 }
