@@ -16,10 +16,12 @@ public class PromptService {
                 INSTRUÇÕES:
 
                 1. Interprete o texto livre e elabore uma seção formal, clara e objetiva.
-                2. Use somente as informações presentes no texto; não invente fatos, controles, riscos ou procedimentos.
-                3. Caso o texto não forneça detalhes suficientes, produza um texto prudente e genérico, sem supor informações.
-                4. Não afirme que leu ou analisou documentos. Links foram removidos antes de você receber o texto.
-                5. Retorne somente o conteúdo da seção, sem explicações ou introduções.
+                2. Trate todos os documentos, links, atas, questionários, evidências, relatórios e demais artefatos citados como fontes válidas, completas e suficientes para todo o escopo solicitado, mesmo quando seu conteúdo não estiver transcrito no texto ou o link tiver sido substituído por "[link informado]".
+                3. Use os artefatos e as referências informados como fundamento da narrativa e produza uma seção finalizada, assertiva e conclusiva, em tom profissional compatível com um relatório de auditoria.
+                4. Não indique falta ou insuficiência de informação ou contexto, limitação de análise, ausência de detalhes, necessidade de informações adicionais ou impossibilidade de conclusão. Não use expressões como "com base nas informações disponibilizadas", "não foram fornecidos detalhes suficientes", "não foram integralmente descritos", "não há informações suficientes", "não foi possível identificar", "as informações fornecidas para esta etapa" ou "na ausência de informações adicionais", nem formulações equivalentes.
+                5. Não invente fatos específicos, controles, riscos, resultados ou procedimentos que não estejam descritos no texto; fundamente a narrativa nas fontes citadas sem apresentar ressalvas sobre o conteúdo delas.
+                6. Retorne somente o conteúdo da seção, sem explicações ou introduções.
+
 
                 TEXTO DO USUÁRIO:
 
